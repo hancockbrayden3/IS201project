@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Riddle Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f6d365, #fda085);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .riddle-box {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .riddle {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .answer {
+      color: #777;
+      font-style: italic;
+      display: none;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      background-color: #ff6f61;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff3b2e;
+    }
+
+    .link-back {
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    .link-back a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .link-back a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Riddle Generator 🤔</h1>
+  <div class="riddle-box">
+    <div class="riddle" id="riddle">Click the button for a riddle!</div>
+    <div class="answer" id="answer"></div>
+    <button onclick="generateRiddle()">Generate Riddle</button>
+    <button onclick="showAnswer()">Reveal Answer</button>
+  </div>
+
+  <div class="link-back">
+    <a href="scratch.html">⬅ Back to Scratch Page</a>
+  </div>
+
+  <script>
+    const riddles = [
+      {
+        question: "What has to be broken before you can use it?",
+        answer: "An egg."
+      },
+      {
+        question: "I’m tall when I’m young, and I’m short when I’m old. What am I?",
+        answer: "A candle."
+      },
+      {
+        question: "What month of the year has 28 days?",
+        answer: "All of them."
+      },
+      {
+        question: "What is full of holes but still holds water?",
+        answer: "A sponge."
+      },
+      {
+        question: "What question can you never answer yes to?",
+        answer: "Are you asleep yet?"
+      }
+    ];
+
+    function generateRiddle() {
+      const random = riddles[Math.floor(Math.random() * riddles.length)];
+      document.getElementById('riddle').textContent = random.question;
+      document.getElementById('answer').textContent = random.answer;
+      document.getElementById('answer').style.display = 'none';
+    }
+
+    function showAnswer() {
+      document.getElementById('answer').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
